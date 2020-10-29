@@ -10,5 +10,12 @@
 
 module.exports.routes = {
 
-
+  "GET /" : "home",
+  "POST /signup" : "admin/signup",
+  "POST /signin" : "admin/signin",
+  "POST /package/new" : "packages/new",
+  "POST /package/edit/:id" : "packages/edit",
+  "DELETE /package/delete/:id" : "packages/delete",
+  "GET /package/:id" : "packages/view",
+  "GET /packages" : "packages/all",
 };

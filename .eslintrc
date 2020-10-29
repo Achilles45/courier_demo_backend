@@ -76,10 +76,10 @@
     "no-use-before-define":         ["error", {"functions":false}],
     "one-var":                      ["warn", "never"],
     "prefer-arrow-callback":        ["warn", {"allowNamedFunctions":true}],
-    "quotes":                       ["warn", "single", {"avoidEscape":false, "allowTemplateLiterals":true}],
-    "semi":                         ["warn", "always"],
-    "semi-spacing":                 ["warn", {"before":false, "after":true}],
-    "semi-style":                   ["warn", "last"]
+    "quotes":                       ["off", "single", {"avoidEscape":false, "allowTemplateLiterals":true}],
+    "semi":                         ["off", "always"],
+    "semi-spacing":                 ["off", {"before":false, "after":true}],
+    "semi-style":                   ["off", "last"]
   }
 
 }
