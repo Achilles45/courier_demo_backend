@@ -48,7 +48,7 @@ module.exports = {
     ***************************************************************************/
     default: {
       adapter: 'sails-postgresql',
-      url: process.env.DATABASE_URL,
+      // url: process.env.DATABASE_URL,
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -251,8 +251,6 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      // 'https://example.com',
-      // 'https://staging.example.com',
       "https://courierdemo.herokuapp.com"
     ],
 
