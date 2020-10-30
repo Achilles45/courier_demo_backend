@@ -14,6 +14,10 @@ module.exports = {
       description: "A representation of the receiver\s name",
       example: "John Doe"
     },
+    receiversEmail:{
+      type: "string",
+      required: true
+    },
     totalItems:{
       type: "string",
       required: true,

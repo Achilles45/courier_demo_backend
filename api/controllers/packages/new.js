@@ -9,6 +9,10 @@ module.exports = {
       type: "string",
       required: true,
     },
+    receiversEamil:{
+      type: "string",
+      required: true,
+    },
     totalItems:{
       type: "string",
       required: true,
@@ -66,6 +70,7 @@ module.exports = {
       const newPackage = await Package.create({
         id: sails.helpers.getUuid(),
         receiversName: inputs.receiversName,
+        receiversEamil: inputs.receiversEamil,
         totalItems: inputs.totalItems,
         currentLocation: inputs.currentLocation,
         insurance: inputs.insurance,
@@ -78,6 +83,10 @@ module.exports = {
         comment: inputs.comment,
         status: inputs.status
       }).fetch();
+      const email = {
+        to: newPackage.receiversEamil,
+      };
+      await sails.helpers.sendemails(email)
       return exits.success({
         message: "Package successfully created",
         data: newPackage
