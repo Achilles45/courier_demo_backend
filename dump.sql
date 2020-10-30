@@ -52,6 +52,23 @@ CREATE TABLE public.archive (
 ALTER TABLE public.archive OWNER TO courier;
 
 --
+-- Name: message; Type: TABLE; Schema: public; Owner: courier
+--
+
+CREATE TABLE public.message (
+    "createdAt" bigint,
+    "updatedAt" bigint,
+    id character varying NOT NULL,
+    "fullName" text,
+    "emailAddress" text,
+    "phoneNumber" real,
+    message text
+);
+
+
+ALTER TABLE public.message OWNER TO courier;
+
+--
 -- Name: package; Type: TABLE; Schema: public; Owner: courier
 --
 
@@ -60,6 +77,7 @@ CREATE TABLE public.package (
     "updatedAt" bigint,
     id character varying NOT NULL,
     "receiversName" text,
+    "receiversEmail" text,
     "totalItems" text,
     "currentLocation" text,
     insurance text,
@@ -81,7 +99,7 @@ ALTER TABLE public.package OWNER TO courier;
 --
 
 COPY public.admin ("createdAt", "updatedAt", id, "fullName", "emailAddress", password) FROM stdin;
-1603942778210	1603942778210	6803261f-5eb5-404e-84ac-eeb0168518cc	Paul Okoye	paul@gmail.com	$2a$10$Xp/UquCEdZSKv8LVMbr4Tu/8PJOkyslAAcwsU42ZM.w5w.pE0ESLm
+1604032411636	1604041042258	63c456e5-48de-4c26-9f26-2ed02d36c214	Paul Okoye	paul@gmail.com	aaaaaaaaaa
 \.
 
 
@@ -94,12 +112,18 @@ COPY public.archive (id, "createdAt", "fromModel", "originalRecord", "originalRe
 
 
 --
+-- Data for Name: message; Type: TABLE DATA; Schema: public; Owner: courier
+--
+
+COPY public.message ("createdAt", "updatedAt", id, "fullName", "emailAddress", "phoneNumber", message) FROM stdin;
+\.
+
+
+--
 -- Data for Name: package; Type: TABLE DATA; Schema: public; Owner: courier
 --
 
-COPY public.package ("createdAt", "updatedAt", id, "receiversName", "totalItems", "currentLocation", insurance, "sendersName", "sendersAddress", "shipingDate", "shipingAddress", weight, "deliveryDate", status, comment) FROM stdin;
-1603946369498	1603946369498	44b1203a-0edc-47a7-a29c-e433b882c9fd	Christian Pullisic	4	Egypt	Insured	Gilberto Silver	Egypt National Port	10/10/2020	Egypt National Port	500kg	20/10/2020	Moving	You will be notified for any changes
-1603944998190	1603946214438	8ff0b321-f7e8-445f-8ef6-d8abb85b092c	Paul Smith	4	Egypt	Insured	Gilberto Silver	Egypt National Port	10/10/2020	Egypt National Port	500kg	20/10/2020	On Hold	You will be notified for any changes
+COPY public.package ("createdAt", "updatedAt", id, "receiversName", "receiversEmail", "totalItems", "currentLocation", insurance, "sendersName", "sendersAddress", "shipingDate", "shipingAddress", weight, "deliveryDate", status, comment) FROM stdin;
 \.
 
 
@@ -125,6 +149,14 @@ ALTER TABLE ONLY public.admin
 
 ALTER TABLE ONLY public.archive
     ADD CONSTRAINT archive_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: message message_pkey; Type: CONSTRAINT; Schema: public; Owner: courier
+--
+
+ALTER TABLE ONLY public.message
+    ADD CONSTRAINT message_pkey PRIMARY KEY (id);
 
 
 --
