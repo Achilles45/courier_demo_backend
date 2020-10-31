@@ -17,10 +17,10 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  '*': "is-logged-in",
-  "home": true,
-  "messages/create" : true,
-  "messages/all" : true,
-  "admin/signup": true,
-  "admin/signin": true,
+  // '*': "is-logged-in",
+  // "home": true,
+  // "messages/create" : true,
+  // "messages/all" : true,
+  // "admin/signup": true,
+  // "admin/signin": true,
 };
